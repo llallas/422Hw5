@@ -1,0 +1,17 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model Trail {
+    id            Int      @id @default(autoincrement())
+    name          String
+    distanceMiles Float
+    difficulty    String
+    region        String
+    createdAt     DateTime @default(now())
+}
